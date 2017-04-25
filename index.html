@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US"><head><!-- Created by Artisteer v4.3.0.60745 -->
+    <meta charset="utf-8">
+    <title>Home</title>
+    <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+
+    <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <link rel="stylesheet" href="style.css" media="screen">
+    <!--[if lte IE 7]><link rel="stylesheet" href="style.ie7.css" media="screen" /><![endif]-->
+    <link rel="stylesheet" href="style.responsive.css" media="all">
+
+
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+    <script src="script.responsive.js"></script>
+
+
+<script>jQuery(function ($) {
+    'use strict';
+    if ($.fn.themeSlider) {
+        $(".art-slidecontainera3f3897f5adc419196a585edcab4c0a6").each(function () {
+            var slideContainer = $(this), tmp;
+            var inner = $(".art-slider-inner", slideContainer);
+            inner.children().filter("script").remove();
+            var helper = null;
+            
+            if ($.support.themeTransition) {
+                helper = new BackgroundHelper();
+                helper.init("vertical", "prev", $(".art-slide-item", inner).first().css($.support.themeTransition.prefix + "transition-duration"));
+                inner.children().each(function () {
+                    helper.processSlide($(this), true);
+                });
+
+                                var initialWidth = slideContainer.attr("data-width");
+                var initialHeight = slideContainer.attr("data-height");
+                helper.updateSize(inner, { width: initialWidth, height: initialHeight });
+                
+                var items = helper.items(helper.current(0), helper.next(0));
+                helper.setBackground(inner, items);
+                helper.setPosition(inner, items);
+
+                slideContainer.on("beforeSlide", function () {
+                    var activeItem = $(".active", this),
+                        nextItem = $(".next, .prev", this),
+                        activePos = $(".art-slide-item", this).index(activeItem),
+                        nextPos = $(".art-slide-item", this).index(nextItem);
+
+                    var currentItems = helper.items(helper.current(activePos), helper.current(nextPos));
+
+                    helper.transition(inner, false);
+                    helper.setBackground(inner, currentItems);
+                    helper.setPosition(inner, currentItems);
+                    if (inner.length) {
+                        tmp = inner.get(0).offsetHeight;
+                    }
+
+                    var movedCurrentItems = helper.items(helper.current(activePos), helper.current(nextPos), true);
+                    helper.transition(inner, true);
+                    helper.setPosition(inner, movedCurrentItems);
+                });
+                
+            } else if (browser.ie && browser.version <= 8) {
+                var slidesInfo = {
+".art-slidea3f3897f5adc419196a585edcab4c0a60": {
+    "bgimage" : "url('images/slidea3f3897f5adc419196a585edcab4c0a60.jpg')",
+    "bgposition": "0 0",
+    "images": "",
+    "positions": ""
+},
+".art-slidea3f3897f5adc419196a585edcab4c0a61": {
+    "bgimage" : "url('images/slidea3f3897f5adc419196a585edcab4c0a61.jpg')",
+    "bgposition": "0 0",
+    "images": "",
+    "positions": ""
+},
+".art-slidea3f3897f5adc419196a585edcab4c0a62": {
+    "bgimage" : "url('images/slidea3f3897f5adc419196a585edcab4c0a62.jpg')",
+    "bgposition": "0 0",
+    "images": "",
+    "positions": ""
+},
+".art-slidea3f3897f5adc419196a585edcab4c0a63": {
+    "bgimage" : "url('images/slidea3f3897f5adc419196a585edcab4c0a63.jpg')",
+    "bgposition": "0 0",
+    "images": "",
+    "positions": ""
+}
+                };
+                $.each(slidesInfo, function(selector, info) {
+                    processElementMultiplyBg(slideContainer.find(selector), info);
+                });
+            }
+
+            inner.children().eq(0).addClass("active");
+            slideContainer.themeSlider({
+                pause: 3100,
+                speed: 1100,
+                repeat: true,
+                animation: "vertical",
+                direction: "prev",
+                navigator: slideContainer.siblings(".art-slidenavigatora3f3897f5adc419196a585edcab4c0a6"),
+                helper: helper
+            });
+            
+                        
+        });
+    }
+});
+</script><style>.art-content .art-postcontent-0 .layout-item-0 { padding: 25px;  }
+.art-content .art-postcontent-0 .layout-item-1 { padding-right: 10px;padding-left: 10px;  }
+.ie7 .art-post .art-layout-cell {border:none !important; padding:0 !important; }
+.ie6 .art-post .art-layout-cell {border:none !important; padding:0 !important; }
+
+.art-slidecontainera3f3897f5adc419196a585edcab4c0a6 {
+    position: relative;
+        width: 420px;
+    height: 259px;
+        }
+
+.default-responsive .art-header .art-slidecontainera3f3897f5adc419196a585edcab4c0a6,
+.responsive .art-header .art-slidecontainera3f3897f5adc419196a585edcab4c0a6
+{
+  position: absolute !important;
+}
+
+.responsive .art-pageslider .art-slidecontainera3f3897f5adc419196a585edcab4c0a6 {
+  position: absolute !important;
+}
+
+.art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .art-slide-item
+{
+
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    transform: rotate(0);
+}
+
+
+.art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .art-slide-item {
+    -webkit-transition: 1100ms ease-in-out top;
+    -moz-transition: 1100ms ease-in-out top;
+    -ms-transition: 1100ms ease-in-out top;
+    -o-transition: 1100ms ease-in-out top;
+    transition: 1100ms ease-in-out top;
+    position: relative;
+    display: none;
+    width:  100%;
+    height: 100%;
+}
+
+.art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .active, .art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .next, .art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .prev {
+    display: block;
+}
+
+.art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .active {
+    top: 0;
+}
+.ie10 .art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .active {
+    top: 0.1px;
+}
+
+.art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .next, .art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .prev {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .next {
+    top: 100%;
+}
+
+.art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .prev {
+    top: -100%;
+}
+
+.art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .next.forward, .art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .prev.back {
+    top: 0;
+}
+.ie10 .art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .next.forward, .art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .prev.back {
+    top: 0.1px;
+}
+
+.art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .active.forward {
+    top: -100%;
+}
+
+.art-slidecontainera3f3897f5adc419196a585edcab4c0a6 .active.back {
+    top: 100%;
+}
+
+
+
+.art-slidea3f3897f5adc419196a585edcab4c0a60 {
+    background-image:  url('images/slidea3f3897f5adc419196a585edcab4c0a60.jpg');
+        /* background-size:  auto auto; */
+        background-position:  center center;
+    background-repeat: no-repeat;
+}
+
+/* special setup for header/pageslider */
+.responsive .art-header .art-slidea3f3897f5adc419196a585edcab4c0a60 {
+    background-image:  url('images/slidea3f3897f5adc419196a585edcab4c0a60.jpg');
+    background-size: auto auto;
+    background-position:  center center;
+    background-repeat: no-repeat;
+}
+
+.responsive .art-pageslider .art-slidea3f3897f5adc419196a585edcab4c0a60 {
+    background-image:  url('images/slidea3f3897f5adc419196a585edcab4c0a60.jpg');
+    background-size: auto auto;
+    background-position:  center center;
+    background-repeat: no-repeat;
+}
+
+.default-responsive .art-header .art-slidea3f3897f5adc419196a585edcab4c0a60 {
+    background-image: url('images/slidea3f3897f5adc419196a585edcab4c0a60.jpg');
+    background-size: auto auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.default-responsive .art-pageslider .art-slidea3f3897f5adc419196a585edcab4c0a60 {
+    background-image: url('images/slidea3f3897f5adc419196a585edcab4c0a60.jpg');
+    background-size: auto auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+}.art-slidea3f3897f5adc419196a585edcab4c0a61 {
+    background-image:  url('images/slidea3f3897f5adc419196a585edcab4c0a61.jpg');
+        /* background-size:  auto auto; */
+        background-position:  center center;
+    background-repeat: no-repeat;
+}
+
+/* special setup for header/pageslider */
+.responsive .art-header .art-slidea3f3897f5adc419196a585edcab4c0a61 {
+    background-image:  url('images/slidea3f3897f5adc419196a585edcab4c0a61.jpg');
+    background-size: auto auto;
+    background-position:  center center;
+    background-repeat: no-repeat;
+}
+
+.responsive .art-pageslider .art-slidea3f3897f5adc419196a585edcab4c0a61 {
+    background-image:  url('images/slidea3f3897f5adc419196a585edcab4c0a61.jpg');
+    background-size: auto auto;
+    background-position:  center center;
+    background-repeat: no-repeat;
+}
+
+.default-responsive .art-header .art-slidea3f3897f5adc419196a585edcab4c0a61 {
+    background-image: url('images/slidea3f3897f5adc419196a585edcab4c0a61.jpg');
+    background-size: auto auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.default-responsive .art-pageslider .art-slidea3f3897f5adc419196a585edcab4c0a61 {
+    background-image: url('images/slidea3f3897f5adc419196a585edcab4c0a61.jpg');
+    background-size: auto auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+}.art-slidea3f3897f5adc419196a585edcab4c0a62 {
+    background-image:  url('images/slidea3f3897f5adc419196a585edcab4c0a62.jpg');
+        /* background-size:  auto auto; */
+        background-position:  center center;
+    background-repeat: no-repeat;
+}
+
+/* special setup for header/pageslider */
+.responsive .art-header .art-slidea3f3897f5adc419196a585edcab4c0a62 {
+    background-image:  url('images/slidea3f3897f5adc419196a585edcab4c0a62.jpg');
+    background-size: auto auto;
+    background-position:  center center;
+    background-repeat: no-repeat;
+}
+
+.responsive .art-pageslider .art-slidea3f3897f5adc419196a585edcab4c0a62 {
+    background-image:  url('images/slidea3f3897f5adc419196a585edcab4c0a62.jpg');
+    background-size: auto auto;
+    background-position:  center center;
+    background-repeat: no-repeat;
+}
+
+.default-responsive .art-header .art-slidea3f3897f5adc419196a585edcab4c0a62 {
+    background-image: url('images/slidea3f3897f5adc419196a585edcab4c0a62.jpg');
+    background-size: auto auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.default-responsive .art-pageslider .art-slidea3f3897f5adc419196a585edcab4c0a62 {
+    background-image: url('images/slidea3f3897f5adc419196a585edcab4c0a62.jpg');
+    background-size: auto auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+}.art-slidea3f3897f5adc419196a585edcab4c0a63 {
+    background-image:  url('images/slidea3f3897f5adc419196a585edcab4c0a63.jpg');
+        /* background-size:  auto auto; */
+        background-position:  center center;
+    background-repeat: no-repeat;
+}
+
+/* special setup for header/pageslider */
+.responsive .art-header .art-slidea3f3897f5adc419196a585edcab4c0a63 {
+    background-image:  url('images/slidea3f3897f5adc419196a585edcab4c0a63.jpg');
+    background-size: auto auto;
+    background-position:  center center;
+    background-repeat: no-repeat;
+}
+
+.responsive .art-pageslider .art-slidea3f3897f5adc419196a585edcab4c0a63 {
+    background-image:  url('images/slidea3f3897f5adc419196a585edcab4c0a63.jpg');
+    background-size: auto auto;
+    background-position:  center center;
+    background-repeat: no-repeat;
+}
+
+.default-responsive .art-header .art-slidea3f3897f5adc419196a585edcab4c0a63 {
+    background-image: url('images/slidea3f3897f5adc419196a585edcab4c0a63.jpg');
+    background-size: auto auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.default-responsive .art-pageslider .art-slidea3f3897f5adc419196a585edcab4c0a63 {
+    background-image: url('images/slidea3f3897f5adc419196a585edcab4c0a63.jpg');
+    background-size: auto auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.art-slidenavigatora3f3897f5adc419196a585edcab4c0a6 {
+  display: inline-block;
+  position: absolute;
+  direction: ltr !important;
+  top: 234px;
+  left: 83.33%;
+  z-index: 101;
+  line-height: 0 !important;
+  -webkit-background-origin: border !important;
+  -moz-background-origin: border !important;
+  background-origin: border-box !important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+    white-space: nowrap;
+    }
+.art-slidenavigatora3f3897f5adc419196a585edcab4c0a6
+{
+background: #7A7A7A;background: transparent;background: transparent;background: transparent;background: transparent;-svg-background: transparent;background: transparent;
+-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;
+
+
+padding:10px;
+
+
+
+
+
+}
+.art-slidenavigatora3f3897f5adc419196a585edcab4c0a6 > a
+{
+background: #474747;background: #474747;background: #474747;background: #474747;background: #474747;-svg-background: #474747;background: #474747;
+-webkit-border-radius:40%;-moz-border-radius:40%;border-radius:40%;
+
+
+
+margin:0 10px 0 0;
+
+width: 5px;
+
+height: 5px;
+}
+.art-slidenavigatora3f3897f5adc419196a585edcab4c0a6 > a.active
+{
+background: #C81E5F;background: #C81E5F;background: #C81E5F;background: #C81E5F;background: #C81E5F;-svg-background: #C81E5F;background: #C81E5F;
+-webkit-border-radius:40%;-moz-border-radius:40%;border-radius:40%;
+
+
+
+margin:0 10px 0 0;
+
+width: 5px;
+
+height: 5px;
+}
+.art-slidenavigatora3f3897f5adc419196a585edcab4c0a6 > a:hover
+{
+background: #737373;background: -webkit-linear-gradient(top, #5E5E5E 0, #808080 40%, #858585 50%, #858585 100%) no-repeat;background: -moz-linear-gradient(top, #5E5E5E 0, #808080 40%, #858585 50%, #858585 100%) no-repeat;background: -o-linear-gradient(top, #5E5E5E 0, #808080 40%, #858585 50%, #858585 100%) no-repeat;background: -ms-linear-gradient(top, #5E5E5E 0, #808080 40%, #858585 50%, #858585 100%) no-repeat;-svg-background: linear-gradient(top, #5E5E5E 0, #808080 40%, #858585 50%, #858585 100%) no-repeat;background: linear-gradient(to bottom, #5E5E5E 0, #808080 40%, #858585 50%, #858585 100%) no-repeat;
+-webkit-border-radius:40%;-moz-border-radius:40%;border-radius:40%;
+
+
+
+margin:0 10px 0 0;
+
+width: 5px;
+
+height: 5px;
+}
+
+</style></head>
+<body>
+<div id="art-main">
+<header class="art-header">
+
+    <div class="art-shapes">
+        
+            </div>
+
+<h1 class="art-headline">
+    <a href="/">Yes I Do Collections</a>
+</h1>
+
+
+
+
+
+                        
+                    
+</header>
+<nav class="art-nav">
+    <ul class="art-hmenu"><li><a href="home.html" class="active">Home</a></li><li><a href="sign-up.html">Sign up</a></li><li><a href="about-business.html">About business</a></li><li><a href="contact-details.html">Contact Details</a></li>
+    <li><a href="enter-details.html">Log in</a></li></ul> 
+    </nav>
+<div class="art-sheet clearfix">
+            <div class="art-layout-wrapper">
+                <div class="art-content-layout">
+                    <div class="art-content-layout-row">
+                        <div class="art-layout-cell art-content"><article class="art-post art-article">
+                                <div class="art-postmetadataheader">
+                                        <h2 class="art-postheader">Home</h2>
+                                    </div>
+                                                
+                <div class="art-postcontent art-postcontent-0 clearfix"><div class="art-content-layout">
+    <div class="art-content-layout-row">
+    <div class="art-layout-cell layout-item-0" style="width: 100%" >
+        <div class="image-caption-wrapper" style="width: 55%; float: left"><div id="a3f3897f5adc419196a585edcab4c0a6" style="position: relative; display: inline-block; z-index: 0; margin: 7px;  border-width: 0px;  float: left;" class="art-collage">
+<div class="art-slider art-slidecontainera3f3897f5adc419196a585edcab4c0a6" data-width="420" data-height="259">
+    <div class="art-slider-inner">
+<div class="art-slide-item art-slidea3f3897f5adc419196a585edcab4c0a60" >
+
+
+</div>
+<div class="art-slide-item art-slidea3f3897f5adc419196a585edcab4c0a61" >
+
+
+</div>
+<div class="art-slide-item art-slidea3f3897f5adc419196a585edcab4c0a62" >
+
+
+</div>
+<div class="art-slide-item art-slidea3f3897f5adc419196a585edcab4c0a63" >
+
+
+</div>
+
+    </div>
+</div>
+<div class="art-slidenavigator art-slidenavigatora3f3897f5adc419196a585edcab4c0a6" data-left="1" data-top="1">
+<a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a>
+</div>
+
+
+
+    </div>
+
+        
+        </div>
+        <p>We provide the best and affortable services around the country.&nbsp;</p><p><br></p>
+        <p><br></p>
+    </div>
+    </div>
+</div>
+<div class="art-content-layout">
+    <div class="art-content-layout-row">
+    <div class="art-layout-cell layout-item-1" style="width: 50%" >
+        <ul>
+        <li>Suspendisse pharetra auctor pharetra. Nunc a sollicitudin est.</li>
+        <li>Donec vel neque in neque porta venenatis sed sit amet lectus.</li>
+        <li>Curabitur ullamcorper gravida felis, sit amet scelerisque lorem iaculis sed.</li>
+        </ul>
+    </div><div class="art-layout-cell layout-item-1" style="width: 50%" >
+        <blockquote style="margin: 10px 0"><span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica; font-style: normal; line-height: normal; text-align: -webkit-center; widows: 1; background-color: rgb(255, 250, 240);">If I knew how to write a song</span><br style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica; font-style: normal; line-height: normal; text-align: -webkit-center; widows: 1; background-color: rgb(255, 250, 240);"><span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica; font-style: normal; line-height: normal; text-align: -webkit-center; widows: 1; background-color: rgb(255, 250, 240);">I’d write one everyday</span><br style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica; font-style: normal; line-height: normal; text-align: -webkit-center; widows: 1; background-color: rgb(255, 250, 240);"><span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica; font-style: normal; line-height: normal; text-align: -webkit-center; widows: 1; background-color: rgb(255, 250, 240);">It would say that I’m in love with you</span><br style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica; font-style: normal; line-height: normal; text-align: -webkit-center; widows: 1; background-color: rgb(255, 250, 240);"><span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica; font-style: normal; line-height: normal; text-align: -webkit-center; widows: 1; background-color: rgb(255, 250, 240);">And why I feel this way</span></blockquote>
+    </div>
+    </div>
+</div>
+</div>
+
+
+</article></div>
+                    </div>
+                </div>
+            </div><footer class="art-footer">
+<p><a href="https://www.Facebook.com">Facebook</a>|<a href="http://www.youtube.com" target="_blank">YouTube</a>| <a href="https://www.instagram.com">Instagram</a></p>
+<p>Copyright © 2014. All Rights Reserved.</p>
+</footer>
+
+    </div>
+    <p class="art-page-footer">
+        <span id="art-footnote-links"><a href="http://www.artisteer.com/" target="_blank">Web Template</a> created with Artisteer.</span>
+    </p>
+</div>
+
+
+</body></html>
